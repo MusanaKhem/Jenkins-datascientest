@@ -1,0 +1,25 @@
+.
+├── app
+│   └── main.py
+├── arborescence.txt
+├── Dockerfile
+├── fastapi
+│   ├── charts
+│   ├── Chart.yaml
+│   ├── templates
+│   │   ├── deployment.yaml
+│   │   ├── _helpers.tpl
+│   │   ├── hpa.yaml
+│   │   ├── ingress.yaml
+│   │   ├── NOTES.txt
+│   │   ├── serviceaccount.yaml
+│   │   ├── service.yaml
+│   │   └── tests
+│   │       └── test-connection.yaml
+│   └── values.yaml
+├── Jenkinsfile
+├── README.md
+├── requirements.txt
+└── tree.txt
+
+6 directories, 17 files
