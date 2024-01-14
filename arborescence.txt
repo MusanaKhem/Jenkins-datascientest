@@ -1,0 +1,19 @@
++--- app
+|   +--- main.py
++--- fastapi
+|   +--- .helmignore
+|   +--- Chart.yaml
+|   +--- templates
+|   |   +--- deployment.yaml
+|   |   +--- hpa.yaml
+|   |   +--- ingress.yaml
+|   |   +--- NOTES.txt
+|   |   +--- service.yaml
+|   |   +--- serviceaccount.yaml
+|   |   +--- tests
+|   |   |   +--- test-connection.yaml
+|   |   +--- _helpers.tpl
+|   +--- values.yaml
++--- Dockerfile
++--- Jenkinsfile
++--- Requirements.txt
