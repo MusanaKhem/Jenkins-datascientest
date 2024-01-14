@@ -3,6 +3,7 @@ environment { // Declaration of environment variables
 DOCKER_ID = "hmatondo" // replace this with your docker-id
 DOCKER_IMAGE = "datascientestapi"
 DOCKER_TAG = "v.${BUILD_ID}.0" // we will tag our images with the current build in order to increment the value by 1 with each new build
+HELM_PATH = "/usr/local/bin/helm"
 }
 agent any // Jenkins will be able to select all available agents
 stages {
@@ -59,7 +60,7 @@ stages {
 stage('Deploiement en dev'){
         environment
         {
-        KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
+        KUBECONFIG = credentials("config") // we retrieve kubeconfig from secret file called config saved on jenkins
         }
             steps {
                 script {
@@ -71,7 +72,7 @@ stage('Deploiement en dev'){
                 cp fastapi/values.yaml values.yml
                 cat values.yml
                 sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
-                helm upgrade --install app fastapi --values=values.yml --namespace dev
+                $HELM_PATH upgrade --install app fastapi --values=values.yml --namespace dev
                 '''
                 }
             }
