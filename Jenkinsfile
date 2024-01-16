@@ -135,6 +135,8 @@ post {
              subject: "${env.JOB_NAME} - Build # ${env.BUILD_ID} has failed",
              body: "Hi, this is Hermann, for more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
     }
+}
+post {
     success {
         echo "This will run if the job succeeded"
         mail to: "hermann.acm@gmail.com, gnzezambi@gmail.com, jerome2munich@gmail.com",
