@@ -127,19 +127,22 @@ stage('Deploiement en staging'){
 
         }
 
- post {
-    failure {
-        echo "This will run if the job failed"
-        mail to: "hermann.acm@gmail.com, gnzezambi@gmail.com, jerome2munich@gmail.com",
-             subject: "${env.JOB_NAME} - Build # ${env.BUILD_ID} has failed",
-             body: "Hi, this is Hermann, for more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
+    post {
+        failure {
+            echo "This will run if the job failed"
+            mail to: "hermann.acm@gmail.com, gnzezambi@gmail.com, jerome2munich@gmail.com",
+                 subject: "${env.JOB_NAME} - Build # ${env.BUILD_ID} has failed",
+                 body: "Hi, this is Hermann, for more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
+        }
     }
-    success {
-        echo "This will run if the job succeeded"
-        mail to: "hermann.acm@gmail.com, gnzezambi@gmail.com, jerome2munich@gmail.com",
-             subject: "${env.JOB_NAME} - Build # ${env.BUILD_ID} has success",
-             body: "Hi, this is Hermann, pipeline using Git, GitHub, Python application, FastAPI requests test, Jenkins, Jenkinsfile, Kubernetes succeeded. Then check out the console output at ${env.BUILD_URL}"
+
+    post {
+        success {
+            echo "This will run if the job succeeded"
+            mail to: "hermann.acm@gmail.com, gnzezambi@gmail.com, jerome2munich@gmail.com",
+                 subject: "${env.JOB_NAME} - Build # ${env.BUILD_ID} has success",
+                 body: "Hi, this is Hermann, pipeline using Git, GitHub, Python application, FastAPI requests test, Jenkins, Jenkinsfile, Kubernetes succeeded. Then check out the console output at ${env.BUILD_URL}"
+        }
     }
- }
 }
 }
