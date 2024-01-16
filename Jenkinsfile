@@ -127,8 +127,7 @@ stage('Deploiement en staging'){
 
         }
 
-post {
-    // ..
+ post {
     failure {
         echo "This will run if the job failed"
         mail to: "hermann.acm@gmail.com, gnzezambi@gmail.com, jerome2munich@gmail.com",
@@ -141,6 +140,6 @@ post {
              subject: "${env.JOB_NAME} - Build # ${env.BUILD_ID} has success",
              body: "Hi, this is Hermann, pipeline using Git, GitHub, Python application, FastAPI requests test, Jenkins, Jenkinsfile, Kubernetes succeeded. Then check out the console output at ${env.BUILD_URL}"
     }
-}
+ }
 }
 }
