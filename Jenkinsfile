@@ -128,7 +128,7 @@ stage('Deploiement en staging'){
         }
 }
 post {
-    failure {
+    success {
         echo "This will run if the job failed"
         mail to: "hermann.acm@gmail.com, gnzezambi@gmail.com, jerome2munich@gmail.com",
              subject: "${env.JOB_NAME} - Build # ${env.BUILD_ID} has failed",
